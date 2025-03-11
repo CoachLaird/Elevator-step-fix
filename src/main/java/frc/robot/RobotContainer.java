@@ -25,6 +25,7 @@ import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
 import frc.robot.subsystems.ElevatorSubsystem;
 import frc.robot.subsystems.Endeffector;
+import edu.wpi.first.cameraserver.CameraServer;
 
 public class RobotContainer {
     private double MaxSpeed = TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired top speed
@@ -67,7 +68,7 @@ public class RobotContainer {
                 () -> m_elevatorSubsystem.ElevatorToSetpoint(3)));
         autoChooser = AutoBuilder.buildAutoChooser("Tests");
         SmartDashboard.putData("Auto Mode", autoChooser);
-
+        import edu.wpi.first.cameraserver.CameraServer;
         configureBindings();
 
     }
