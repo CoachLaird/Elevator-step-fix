@@ -126,11 +126,9 @@ public class RobotContainer {
 
         // Add D-Pad controls for elevator
         joystickOperator.povUp()
-                .onTrue(new InstantCommand(
-                        () -> m_elevatorSubsystem.stepUp()));
+                .onTrue(new InstantCommand(() -> m_elevatorSubsystem.stepUp()));
         joystickOperator.povDown()
-                .onTrue(new InstantCommand(
-                        () -> m_elevatorSubsystem.stepDown()));
+                .onTrue(new InstantCommand(() -> m_elevatorSubsystem.stepDown()));
         
                 }
 
