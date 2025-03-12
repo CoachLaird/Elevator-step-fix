@@ -128,14 +128,13 @@ public class RobotContainer {
         // Add joystick controls for elevator
        drivetrain.setDefaultCommand(
         drivetrain.applyRequest(() -> {
-            double rightY = joystickOperator.getRightY();
-            if (rightY > 0.5) {
-                m_elevatorSubsystem.ElevatorToSetpoint(m_elevatorSubsystem.getCurrentPosition() + 1);
-            } else if (rightY < -0.5) {
-                m_elevatorSubsystem.ElevatorToSetpoint(m_elevatorSubsystem.getCurrentPosition() - 1);
-            }
-        })
-    );
+             double rightY = joystickOperator.getRightY();
+        double precisionFactor = 0.1; // Adjust this factor to control the speed
+        if (Math.abs(rightY) > 0.1) { // Add deadband to avoid unintentional movements
+            m_elevatorSubsystem.ElevatorToSetpoint(m_elevatorSubsystem.getCurrentPosition() + (rightY * precisionFactor));
+        }
+    })
+);
         
                 }
 
